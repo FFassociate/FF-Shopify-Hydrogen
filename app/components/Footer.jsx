@@ -16,115 +16,111 @@ export function Footer({footer, header, publicStoreDomain}) {
 
   return (
     <footer className="footer">
-      <div className="container py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-          <div>
-            <h3 className="text-cyan-400 font-bold text-lg mb-4">FLASHFOG</h3>
-            <ul className="space-y-2">
-              <li><Link to="/" className="text-cyan-400 hover:text-cyan-300 transition-colors">Home</Link></li>
-              <li><Link to="/collections/all" className="text-cyan-400 hover:text-cyan-300 transition-colors">All products</Link></li>
-              <li><Link to="/collections/all" className="text-cyan-400 hover:text-cyan-300 transition-colors">Store</Link></li>
-              <li><Link to="/pages/photo-gallery" className="text-cyan-400 hover:text-cyan-300 transition-colors">Photo gallery</Link></li>
+      <div className="footer-container">
+        <div className="footer-menu">
+          <div className="footer-section">
+            <h3 className="footer-title">FLASHFOG</h3>
+            <ul className="footer-list">
+              <li><Link to="/" className="footer-link">Home</Link></li>
+              <li><Link to="/collections/all" className="footer-link">All products</Link></li>
+              <li><Link to="/collections/all" className="footer-link">Store</Link></li>
+              <li><Link to="/pages/photo-gallery" className="footer-link">Photo gallery</Link></li>
             </ul>
-            <h4 className="text-cyan-400 font-bold text-lg mt-6 mb-4">Company</h4>
-            <ul className="space-y-2">
-              <li><Link to="/pages/about-us" className="text-cyan-400 hover:text-cyan-300 transition-colors">About us / Contact us</Link></li>
-              <li><Link to="/pages/return-policy" className="text-cyan-400 hover:text-cyan-300 transition-colors">Return policy</Link></li>
-              <li><Link to="/pages/privacy-policy" className="text-cyan-400 hover:text-cyan-300 transition-colors">Privacy policy</Link></li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-cyan-400 font-bold text-lg mb-4">Technologies</h3>
-            <ul className="space-y-2">
-              <li><Link to="/pages/fog-details" className="text-cyan-400 hover:text-cyan-300 transition-colors">Security fog (details)</Link></li>
-              <li><Link to="/pages/light-barrier" className="text-cyan-400 hover:text-cyan-300 transition-colors">Light barrier</Link></li>
-              <li><Link to="/pages/sound-barrier" className="text-cyan-400 hover:text-cyan-300 transition-colors">Sound Barrier</Link></li>
+            <h4 className="footer-title footer-title-small">Company</h4>
+            <ul className="footer-list">
+              <li><Link to="/pages/about-us" className="footer-link">About us / Contact us</Link></li>
+              <li><Link to="/pages/return-policy" className="footer-link">Return policy</Link></li>
+              <li><Link to="/pages/privacy-policy" className="footer-link">Privacy policy</Link></li>
             </ul>
           </div>
 
-          <div>
-            <h3 className="text-cyan-400 font-bold text-lg mb-4">Get yours</h3>
-            <ul className="space-y-2">
-              <li><Link to="/collections/all" className="text-cyan-400 hover:text-cyan-300 transition-colors">Store</Link></li>
-              <li><Link to="/pages/photo-gallery" className="text-cyan-400 hover:text-cyan-300 transition-colors">Photo gallery</Link></li>
-              <li><Link to="/collections/all" className="text-cyan-400 hover:text-cyan-300 transition-colors">All products</Link></li>
-              <li><Link to="/pages/model-selection" className="text-cyan-400 hover:text-cyan-300 transition-colors">Model selection</Link></li>
-              <li><Link to="/pages/installation" className="text-cyan-400 hover:text-cyan-300 transition-colors">Installation</Link></li>
-              <li><Link to="/pages/is-my-site-right" className="text-cyan-400 hover:text-cyan-300 transition-colors">Is my site right?</Link></li>
+          <div className="footer-section">
+            <h3 className="footer-title">Technologies</h3>
+            <ul className="footer-list">
+              <li><Link to="/pages/fog-details" className="footer-link">Security fog (details)</Link></li>
+              <li><Link to="/pages/light-barrier" className="footer-link">Light barrier</Link></li>
+              <li><Link to="/pages/sound-barrier" className="footer-link">Sound Barrier</Link></li>
             </ul>
           </div>
 
-          <div>
-            <h3 className="text-cyan-400 font-bold text-lg mb-4">Dealers</h3>
-            <ul className="space-y-2">
-              <li><Link to="/pages/installer-program" className="text-cyan-400 hover:text-cyan-300 transition-colors">Installer program</Link></li>
+          <div className="footer-section">
+            <h3 className="footer-title">Get yours</h3>
+            <ul className="footer-list">
+              <li><Link to="/collections/all" className="footer-link">Store</Link></li>
+              <li><Link to="/pages/photo-gallery" className="footer-link">Photo gallery</Link></li>
+              <li><Link to="/collections/all" className="footer-link">All products</Link></li>
+              <li><Link to="/pages/model-selection" className="footer-link">Model selection</Link></li>
+              <li><Link to="/pages/installation" className="footer-link">Installation</Link></li>
+              <li><Link to="/pages/is-my-site-right" className="footer-link">Is my site right?</Link></li>
             </ul>
           </div>
-        </div>
 
-        <div className="text-center mb-8">
-          <div className="text-2xl font-bold text-white mb-2">flashfog</div>
-          <div className="text-orange-500 font-bold">25 YEARS</div>
-          <div className="text-cyan-400 mt-2">
-            <Link to="/pages/about-us" className="hover:text-cyan-300 transition-colors">Contact us</Link>
-          </div>
-        </div>
-
-        <div className="flex flex-col md:flex-row justify-between items-center gap-8 mb-8">
-          <div>
-            <h4 className="text-white font-bold mb-4">JOIN OUR MAILING LIST!</h4>
-            <form onSubmit={handleSubmit} className="flex gap-2">
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your email"
-                className="bg-gray-800 text-white px-4 py-2 rounded border border-gray-600 focus:border-cyan-400 focus:outline-none"
-                required
-              />
-              <button
-                type="submit"
-                className="bg-yellow-500 hover:bg-yellow-600 text-black px-4 py-2 rounded font-medium transition-colors"
-              >
-                Send
-              </button>
-            </form>
-          </div>
-
-          <div className="text-center">
-            <h4 className="text-white font-bold mb-4">FRIENDS TELL FRIENDS!</h4>
-            <div className="flex gap-4">
-              <a href="#" className="text-cyan-400 hover:text-cyan-300 transition-colors">
-                <span className="text-2xl">📘</span>
-              </a>
-              <a href="#" className="text-cyan-400 hover:text-cyan-300 transition-colors">
-                <span className="text-2xl">🐦</span>
-              </a>
-              <a href="#" className="text-cyan-400 hover:text-cyan-300 transition-colors">
-                <span className="text-2xl">💼</span>
-              </a>
+          <div className="footer-section">
+            <h3 className="footer-title">Dealers</h3>
+            <ul className="footer-list">
+              <li><Link to="/pages/installer-program" className="footer-link">Installer program</Link></li>
+            </ul>
+            <div className="footer-newsletter">
+              <h4 className="footer-title footer-title-small">JOIN OUR MAILING LIST!</h4>
+              <form onSubmit={handleSubmit} className="footer-newsletter-form">
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Enter your email"
+                  className="footer-input"
+                  required
+                />
+                <button
+                  type="submit"
+                  className="footer-btn"
+                >
+                  Send
+                </button>
+              </form>
+            </div>
+            <div className="footer-social">
+              <h4 className="footer-title footer-title-small">FRIENDS TELL FRIENDS!</h4>
+              <div className="footer-social-icons">
+                <a href="#" className="footer-social-link">
+                  <span className="footer-social-icon">📘</span>
+                </a>
+                <a href="#" className="footer-social-link">
+                  <span className="footer-social-icon">🐦</span>
+                </a>
+                <a href="#" className="footer-social-link">
+                  <span className="footer-social-icon">💼</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
 
-        <div className="text-center text-sm text-gray-400">
-          <p className="mb-2">
+        <div className="footer-brand">
+          <div className="footer-brand-title">flashfog</div>
+          <div className="footer-brand-years">25 YEARS</div>
+          <div className="footer-brand-contact">
+            <Link to="/pages/about-us" className="footer-link">Contact us</Link>
+          </div>
+        </div>
+
+        <div className="footer-legal">
+          <p>
             By entering your email address, you grant FlashFog permission to send you
             messages about FlashFog. You may unsubscribe at any time. Your information is
-            protected by the <Link to="/pages/privacy-policy" className="text-cyan-400 hover:text-cyan-300">FlashFog Privacy Statement</Link>.
-          </p>
-          <p className="mb-2">
-            Created by <span className="text-cyan-400">Arias Tech Ltd.</span> All rights reserved. ©2025
-          </p>
-          <p className="mb-2">
-            <span className="text-cyan-400">98 Advance Rd, Toronto, Ontario, M8Z 2T7, Canada</span>
-          </p>
-          <p className="mb-2">
-            <span className="text-cyan-400">(905) 502-0249 • (888) 282-7740</span>
+            protected by the <Link to="/pages/privacy-policy" className="footer-link">FlashFog Privacy Statement</Link>.
           </p>
           <p>
-            FlashFog® is a trade mark of <span className="text-cyan-400">Arias Tech Ltd.</span>
+            Created by <span className="footer-legal-highlight">Arias Tech Ltd.</span> All rights reserved. ©2025
+          </p>
+          <p>
+            <span className="footer-legal-highlight">98 Advance Rd, Toronto, Ontario, M8Z 2T7, Canada</span>
+          </p>
+          <p>
+            <span className="footer-legal-highlight">(905) 502-0249 • (888) 282-7740</span>
+          </p>
+          <p>
+            FlashFog® is a trade mark of <span className="footer-legal-highlight">Arias Tech Ltd.</span>
           </p>
         </div>
       </div>

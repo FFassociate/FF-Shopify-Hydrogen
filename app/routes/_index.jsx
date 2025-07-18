@@ -48,11 +48,11 @@ export default function Homepage() {
         <div className="bg-gray-900 p-6 rounded-lg">
           <h2 className="text-xl font-bold text-red-400">Steal Quickly</h2>
           <p className="mt-2 text-sm">Smash and grab burglars love 'verified' alarm policies that delay police response while they steal.</p>
-        </div>
+            </div>
         <div className="bg-gray-900 p-6 rounded-lg">
           <h2 className="text-xl font-bold text-green-400">Don't Get Caught</h2>
           <p className="mt-2 text-sm">Your brazen bandits are probably past their 'first strike'. Not getting caught drives all their decisions.</p>
-        </div>
+            </div>
         <div className="bg-gray-900 p-6 rounded-lg">
           <h2 className="text-xl font-bold text-blue-400">Find Useful Victims</h2>
           <p className="mt-2 text-sm">Juicy targets abound. Quiet areas invite every method of entry, including ram-raids.</p>
@@ -63,9 +63,9 @@ export default function Homepage() {
       <section className="bg-black border-t border-yellow-400 py-12 px-4">
         <h2 className="text-center text-2xl font-bold text-yellow-300 mb-6">"56 seconds first time 1:09 minutes the second time"</h2>
         <div className="grid md:grid-cols-2 gap-6 items-center">
-          <div>
+            <div>
             <img src="/testimonial-video.jpg" alt="Testimonial" className="rounded-xl" />
-          </div>
+                  </div>
           <div className="text-sm text-gray-300">
             Greg really tried, but never caught them stealing. Bandits pulled off ram raids, smashed windows...<br/>
             Full interview available upon request.
@@ -88,7 +88,7 @@ export default function Homepage() {
         <div className="bg-gray-800 p-6 rounded-lg">
           <h3 className="text-xl font-bold text-yellow-200">You Pull The Rug</h3>
           <p className="text-sm mt-2">Thieves can’t steal what they can’t see. They panic. They flee.</p>
-        </div>
+                </div>
         <div className="bg-gray-800 p-6 rounded-lg">
           <h3 className="text-xl font-bold text-yellow-200">You Get Your Money</h3>
           <p className="text-sm mt-2">FlashFog turns alarm systems into real-world protection with immediate action.</p>

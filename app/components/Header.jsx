@@ -3,18 +3,12 @@ import {Await, NavLink, useAsyncValue} from 'react-router';
 import {useAnalytics, useOptimisticCart} from '@shopify/hydrogen';
 import {useAside} from '~/components/Aside';
 
-/**
- * @param {HeaderProps}
- */
 export function Header({header, isLoggedIn, cart, publicStoreDomain}) {
   const {shop, menu} = header;
   return (
-    <header className="header">
-      <NavLink prefetch="intent" to="/" style={activeLinkStyle} end>
-        <div className="flex items-center space-x-2">
-          <div className="text-cyan-400 text-2xl">🛡️</div>
-          <strong className="text-2xl font-bold text-white">flashfog</strong>
-        </div>
+    <header className="homepage-header">
+      <NavLink prefetch="intent" to="/" className="logo">
+        flashfog
       </NavLink>
       <HeaderMenu
         menu={menu}
@@ -27,40 +21,14 @@ export function Header({header, isLoggedIn, cart, publicStoreDomain}) {
   );
 }
 
-/**
- * @param {{
- *   menu: HeaderProps['header']['menu'];
- *   primaryDomainUrl: HeaderProps['header']['shop']['primaryDomain']['url'];
- *   viewport: Viewport;
- *   publicStoreDomain: HeaderProps['publicStoreDomain'];
- * }}
- */
-export function HeaderMenu({
-  menu,
-  primaryDomainUrl,
-  viewport,
-  publicStoreDomain,
-}) {
-  const className = `header-menu-${viewport}`;
+export function HeaderMenu({ menu, primaryDomainUrl, viewport, publicStoreDomain }) {
+  const className = `nav`;
   const {close} = useAside();
 
   return (
     <nav className={className} role="navigation">
-      {viewport === 'mobile' && (
-        <NavLink
-          end
-          onClick={close}
-          prefetch="intent"
-          style={activeLinkStyle}
-          to="/"
-        >
-          Home
-        </NavLink>
-      )}
       {(menu || FALLBACK_HEADER_MENU).items.map((item) => {
         if (!item.url) return null;
-
-        // if the url is internal, we strip the domain
         const url =
           item.url.includes('myshopify.com') ||
           item.url.includes(publicStoreDomain) ||
@@ -69,13 +37,11 @@ export function HeaderMenu({
             : item.url;
         return (
           <NavLink
-            className="header-menu-item"
-            end
             key={item.id}
             onClick={close}
             prefetch="intent"
-            style={activeLinkStyle}
             to={url}
+            className="nav-link"
           >
             {item.title}
           </NavLink>
@@ -85,54 +51,24 @@ export function HeaderMenu({
   );
 }
 
-/**
- * @param {Pick<HeaderProps, 'isLoggedIn' | 'cart'>}
- */
 function HeaderCtas({isLoggedIn, cart}) {
   return (
-    <nav className="header-ctas" role="navigation">
-      <HeaderMenuMobileToggle />
-      <NavLink prefetch="intent" to="/account" style={activeLinkStyle}>
+    <nav className="header-ctas">
+      <NavLink to="/account" className="nav-link">
         <Suspense fallback="Sign in">
           <Await resolve={isLoggedIn} errorElement="Sign in">
             {(isLoggedIn) => (isLoggedIn ? 'Account' : 'Sign in')}
           </Await>
         </Suspense>
       </NavLink>
-      <SearchToggle />
       <CartToggle cart={cart} />
     </nav>
   );
 }
 
-function HeaderMenuMobileToggle() {
-  const {open} = useAside();
-  return (
-    <button
-      className="header-menu-mobile-toggle reset"
-      onClick={() => open('mobile')}
-    >
-      <h3>☰</h3>
-    </button>
-  );
-}
-
-function SearchToggle() {
-  const {open} = useAside();
-  return (
-    <button className="reset" onClick={() => open('search')}>
-      Search
-    </button>
-  );
-}
-
-/**
- * @param {{count: number | null}}
- */
 function CartBadge({count}) {
   const {open} = useAside();
   const {publish, shop, cart, prevCart} = useAnalytics();
-
   return (
     <a
       href="/cart"
@@ -152,9 +88,6 @@ function CartBadge({count}) {
   );
 }
 
-/**
- * @param {Pick<HeaderProps, 'cart'>}
- */
 function CartToggle({cart}) {
   return (
     <Suspense fallback={<CartBadge count={null} />}>
@@ -174,67 +107,8 @@ function CartBanner() {
 const FALLBACK_HEADER_MENU = {
   id: 'gid://shopify/Menu/199655587896',
   items: [
-    {
-      id: 'gid://shopify/MenuItem/461609500728',
-      resourceId: null,
-      tags: [],
-      title: 'FOG DETAILS',
-      type: 'HTTP',
-      url: '/pages/fog-details',
-      items: [],
-    },
-    {
-      id: 'gid://shopify/MenuItem/461609533496',
-      resourceId: null,
-      tags: [],
-      title: 'SECURITY STROBE',
-      type: 'HTTP',
-      url: '/pages/security-strobe',
-      items: [],
-    },
-    {
-      id: 'gid://shopify/MenuItem/461609566264',
-      resourceId: null,
-      tags: [],
-      title: 'SOUND BARRIER',
-      type: 'HTTP',
-      url: '/pages/sound-barrier',
-      items: [],
-    },
-    {
-      id: 'gid://shopify/MenuItem/461609599032',
-      resourceId: 'gid://shopify/Page/92591030328',
-      tags: [],
-      title: 'LIGHT BARRIER',
-      type: 'PAGE',
-      url: '/pages/light-barrier',
-      items: [],
-    },
-  ],
+    { id: '1', title: 'Fog Kits', url: '/collections/all' },
+    { id: '2', title: 'Security Foggers', url: '/pages/security-foggers' },
+    { id: '3', title: 'Buying Basics', url: '/pages/basics' }
+  ]
 };
-
-/**
- * @param {{
- *   isActive: boolean;
- *   isPending: boolean;
- * }}
- */
-function activeLinkStyle({isActive, isPending}) {
-  return {
-    fontWeight: isActive ? 'bold' : undefined,
-    color: isPending ? 'grey' : 'white',
-  };
-}
-
-/** @typedef {'desktop' | 'mobile'} Viewport */
-/**
- * @typedef {Object} HeaderProps
- * @property {HeaderQuery} header
- * @property {Promise<CartApiQueryFragment|null>} cart
- * @property {Promise<boolean>} isLoggedIn
- * @property {string} publicStoreDomain
- */
-
-/** @typedef {import('@shopify/hydrogen').CartViewPayload} CartViewPayload */
-/** @typedef {import('storefrontapi.generated').HeaderQuery} HeaderQuery */
-/** @typedef {import('storefrontapi.generated').CartApiQueryFragment} CartApiQueryFragment */

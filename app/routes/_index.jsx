@@ -1,5 +1,8 @@
 import {Link} from 'react-router';
 
+/**
+ * @type {MetaFunction}
+ */
 export const meta = () => {
   return [
     {title: 'FlashFog Security - Professional Security Fog Systems & Barriers'},
@@ -15,75 +18,87 @@ export const meta = () => {
 
 export default function Homepage() {
   return (
-    <div className="homepage">
-      <header className="homepage-header">
-        <div className="logo">flashfog</div>
-        <nav className="nav">
-          <Link to="/collections/all">Fog Kits</Link>
-          <Link to="/pages/security-foggers">Security Foggers</Link>
-          <Link to="/pages/basics">Buying Basics</Link>
+    <div className="bg-black text-white font-sans min-h-screen">
+      {/* Header */}
+      <header className="flex justify-between items-center px-4 py-3 border-b border-yellow-500">
+        <div className="text-2xl font-bold">flashfog</div>
+        <nav className="space-x-4 hidden md:block">
+          <Link to="#" className="hover:text-yellow-400">Fog Kits</Link>
+          <Link to="#" className="hover:text-yellow-400">Security Foggers</Link>
+          <Link to="#" className="hover:text-yellow-400">Buying Basics</Link>
         </nav>
-        <button className="store-button">Store</button>
+        <button className="bg-yellow-400 text-black px-3 py-1 rounded-md">Store</button>
       </header>
 
-      <section className="hero-video">
-        <img src="/app/assets/img1.jpg" alt="FlashFog video demo" />
-      </section>
-
-      <section className="main-headline">
-        <h1>Think like a burglar!</h1>
-        <p>(...This is How They See It)</p>
-      </section>
-
-      <section className="features-grid">
-        <div className="feature-card red">
-          <h2>Steal Quickly</h2>
-          <p>Smash and grab burglars love 'verified' alarm policies that delay police response while they steal.</p>
-        </div>
-        <div className="feature-card green">
-          <h2>Don't Get Caught</h2>
-          <p>Your brazen bandits are probably past their 'first strike'. Not getting caught drives all their decisions.</p>
-        </div>
-        <div className="feature-card blue">
-          <h2>Find Useful Victims</h2>
-          <p>Juicy targets abound. Quiet areas invite every method of entry, including ram-raids.</p>
+      {/* Hero Video */}
+      <section className="py-6 flex justify-center">
+        <div className="rounded-2xl overflow-hidden border border-yellow-400">
+          <img src="/video-placeholder.jpg" alt="FlashFog video" className="w-full max-w-2xl" />
         </div>
       </section>
 
-      <section className="testimonial-section">
-        <h2>"56 seconds first time 1:09 minutes the second time"</h2>
-        <div className="testimonial-content">
-          <img src="/app/assets/img2.jpg" alt="Testimonial" />
-          <div className="testimonial-text">
+      {/* Main Headline */}
+      <section className="text-center py-10">
+        <h1 className="text-4xl font-bold">Think like a burglar!</h1>
+        <p className="italic mt-2 text-yellow-300">(...This is How They See It)</p>
+      </section>
+
+      {/* 3 Columns Section */}
+      <section className="grid grid-cols-1 md:grid-cols-3 gap-6 px-4 text-center py-10">
+        <div className="bg-gray-900 p-6 rounded-lg">
+          <h2 className="text-xl font-bold text-red-400">Steal Quickly</h2>
+          <p className="mt-2 text-sm">Smash and grab burglars love 'verified' alarm policies that delay police response while they steal.</p>
+            </div>
+        <div className="bg-gray-900 p-6 rounded-lg">
+          <h2 className="text-xl font-bold text-green-400">Don't Get Caught</h2>
+          <p className="mt-2 text-sm">Your brazen bandits are probably past their 'first strike'. Not getting caught drives all their decisions.</p>
+            </div>
+        <div className="bg-gray-900 p-6 rounded-lg">
+          <h2 className="text-xl font-bold text-blue-400">Find Useful Victims</h2>
+          <p className="mt-2 text-sm">Juicy targets abound. Quiet areas invite every method of entry, including ram-raids.</p>
+        </div>
+      </section>
+
+      {/* Testimonial Section */}
+      <section className="bg-black border-t border-yellow-400 py-12 px-4">
+        <h2 className="text-center text-2xl font-bold text-yellow-300 mb-6">"56 seconds first time 1:09 minutes the second time"</h2>
+        <div className="grid md:grid-cols-2 gap-6 items-center">
+            <div>
+            <img src="/testimonial-video.jpg" alt="Testimonial" className="rounded-xl" />
+                  </div>
+          <div className="text-sm text-gray-300">
             Greg really tried, but never caught them stealing. Bandits pulled off ram raids, smashed windows...<br/>
             Full interview available upon request.
           </div>
         </div>
       </section>
 
-      <section className="cta-section">
-        <h2>Then the fog clears without a trace.</h2>
-        <button className="cta-button">Learn More</button>
+      {/* CTA Buttons */}
+      <section className="text-center py-12">
+        <h2 className="text-2xl font-bold text-yellow-300 mb-4">Then the fog clears without a trace.</h2>
+        <button className="bg-yellow-400 text-black px-6 py-2 rounded-md">Learn More</button>
       </section>
 
-      <section className="feature-grid-bottom">
-        <div className="feature-box">
-          <h3>You Teach 'Em</h3>
-          <p>Once thieves have a taste of your security, they avoid your site and move on.</p>
+      {/* Feature Grid */}
+      <section className="grid grid-cols-1 md:grid-cols-3 gap-6 px-4 pb-12">
+        <div className="bg-gray-800 p-6 rounded-lg">
+          <h3 className="text-xl font-bold text-yellow-200">You Teach 'Em</h3>
+          <p className="text-sm mt-2">Once thieves have a taste of your security, they avoid your site and move on.</p>
         </div>
-        <div className="feature-box">
-          <h3>You Pull The Rug</h3>
-          <p>Thieves can’t steal what they can’t see. They panic. They flee.</p>
-        </div>
-        <div className="feature-box">
-          <h3>You Get Your Money</h3>
-          <p>FlashFog turns alarm systems into real-world protection with immediate action.</p>
+        <div className="bg-gray-800 p-6 rounded-lg">
+          <h3 className="text-xl font-bold text-yellow-200">You Pull The Rug</h3>
+          <p className="text-sm mt-2">Thieves can’t steal what they can’t see. They panic. They flee.</p>
+                </div>
+        <div className="bg-gray-800 p-6 rounded-lg">
+          <h3 className="text-xl font-bold text-yellow-200">You Get Your Money</h3>
+          <p className="text-sm mt-2">FlashFog turns alarm systems into real-world protection with immediate action.</p>
         </div>
       </section>
 
-      <footer className="homepage-footer">
-        <p>25 Years smashing smash & grab burglary.</p>
-        <p>&copy; 2025 FlashFog Security. All rights reserved.</p>
+      {/* Footer */}
+      <footer className="bg-black border-t border-yellow-400 text-center text-sm text-gray-400 py-6">
+        <p>25 Years smashing smash &amp; grab burglary.</p>
+        <p className="mt-2">&copy; 2025 FlashFog Security. All rights reserved.</p>
       </footer>
     </div>
   );

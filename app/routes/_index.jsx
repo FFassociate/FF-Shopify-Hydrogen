@@ -1,171 +1,111 @@
 import {Link} from 'react-router';
-import React from 'react';
+
+/**
+ * @type {MetaFunction}
+ */
+export const meta = () => {
+  return [
+    {title: 'FlashFog Security - Professional Security Fog Systems & Barriers'},
+    {name: 'description', content: 'Leading provider of security fog systems, light barriers, and sound barriers. 25+ years of experience protecting properties worldwide with advanced security technology.'},
+    {name: 'keywords', content: 'security fog system, fog security, burglary protection, security strobe, sound barrier, light barrier, property security'},
+    {name: 'author', content: 'Arias Tech Ltd.'},
+    {property: 'og:title', content: 'FlashFog Security - Professional Security Fog Systems'},
+    {property: 'og:description', content: 'Advanced security fog systems and barriers for comprehensive property protection.'},
+    {property: 'og:type', content: 'website'},
+    {rel: 'canonical', href: 'https://flashfog.com'},
+  ];
+};
 
 export default function Homepage() {
   return (
-    <>
-      <style>{`
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Roboto', sans-serif; line-height: 1.6; color: #333; }
-        img { max-width: 100%; display: block; }
-        .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 24px 0; }
-        .hero { text-align: center; padding: 60px 0; }
-        .hero h1 { font-size: 2.5rem; margin-bottom: 16px; }
-        .hero h2 { font-size: 1.5rem; color: #555; margin-bottom: 24px; }
-        .hero .buttons a {
-          display: inline-block;
-          margin: 8px;
-          padding: 12px 24px;
-          background: #007bfc;
-          color: #fff;
-          text-decoration: none;
-          border-radius: 4px;
-          transition: background .3s;
-        }
-        .hero .buttons a:hover { background: #005bb5; }
-        section { margin: 50px 0; }
-        section h2 { font-size: 2rem; color: #007bfc; margin-bottom: 16px; }
-        section p { margin-bottom: 16px; }
-        .feature-list {
-          list-style: none;
-          margin: 24px 0;
-          padding: 0;
-        }
-        .feature-list li {
-          margin-bottom: 8px;
-          padding-left: 1.2em;
-          text-indent: -1.2em;
-        }
-        .feature-list li:before {
-          content: '✔︎';
-          margin-right: 8px;
-          color: #007bfc;
-        }
-        .testimonials blockquote {
-          border-left: 4px solid #007bfc;
-          padding-left: 16px;
-          margin: 24px 0;
-          font-style: italic;
-          color: #555;
-        }
-        .testimonials cite {
-          display: block;
-          text-align: right;
-          font-size: 0.9rem;
-          color: #777;
-          margin-top: 8px;
-        }
-        footer {
-          background: #f5f5f5;
-          padding: 24px 0;
-          font-size: 0.9rem;
-          text-align: center;
-          color: #555;
-        }
-        footer nav a {
-          margin: 0 8px;
-          color: #007bfc;
-          text-decoration: none;
-        }
-        footer nav a:hover { text-decoration: underline; }
-        .newsletter {
-          margin-top: 24px;
-        }
-        .newsletter input {
-          padding: 8px;
-          margin: 4px 0;
-          width: 100%;
-          max-width: 300px;
-        }
-        .newsletter button {
-          padding: 10px 20px;
-          background: #007bfc;
-          color: #fff;
-          border: none;
-          border-radius: 4px;
-          cursor: pointer;
-          margin-top: 8px;
-        }
-        .newsletter button:hover { background: #005bb5; }
-      `}</style>
-      <header className="container hero">
-        <h1>Commercial Burglary Prevention</h1>
-        <h2>SMASH &amp; GRAB SOLVED.</h2>
-        <p>High density fog with blinding strobe lights. Burglars don't have a chance.</p>
-        <div className="buttons">
-          <Link to="#">Learn More</Link>
-          <Link to="#">See Videos</Link>
-        </div>
-        <img src="/assets/hero-image.jpg" alt="FlashFog in action" />
-      </header>
-      <main className="container">
-        <section className="how-it-works">
-          <h2>How FlashFog Works</h2>
-          <p>Burglars can’t steal what they can’t see. When your alarm triggers, FlashFog fills the area with thick white fog and flashing strobe lights—stopping intruders in under 30 seconds.</p>
-        </section>
-        <section className="advantages">
-          <h2>The FlashFog Advantage</h2>
-          <ul className="feature-list">
-            <li>Cannot be defeated with brute force.</li>
-            <li>Stops any number of intruders.</li>
-            <li>Extremely low maintenance cost.</li>
-            <li>Completely safe to breathe, with no residue.</li>
-            <li>Easy to relocate.</li>
-          </ul>
-        </section>
-        <section className="comparison">
-          <h2>Why choose FlashFog over...</h2>
-          <div>
-            <h3>Cameras</h3>
-            <p>Burglaries often go unsolved — even cameras are useless if the criminal can’t see you filming them.</p>
-          </div>
-          <div>
-            <h3>Bars &amp; Gates</h3>
-            <p>Brute force entry and alternate access routes make perimeter devices unreliable and often more costly in damage.</p>
-          </div>
-        </section>
-        <section className="testimonials">
-          <h2>Customer Testimonials</h2>
-          <blockquote>
-            “The room filled up in less than 10 seconds… reminding the owner why he invested in the product.”
-            <cite>— David, INNER‑I Security, California</cite>
-          </blockquote>
-          <blockquote>
-            “I literally had to shuffle my feet, you can't see at all… this product works.”
-            <cite>— Greg Blair, Community TV, Florida</cite>
-          </blockquote>
-        </section>
-        <section className="installation">
-          <h2>Quick and Easy Installation</h2>
-          <p>Integrates with your current alarm. Installed in just a few hours. Comes with manual, video instructions, and full support.</p>
-        </section>
-        <section className="cta">
-          <h2>Request Information</h2>
-          <p>Share your store dimensions and we'll send a customized security fog protection plan.</p>
-          <button>Become A Dealer</button>
-          <button>FAQ</button>
-        </section>
-      </main>
-      <footer>
-        <nav>
-          <Link to="#">Home</Link> |
-          <Link to="#">Products</Link> |
-          <Link to="#">Videos</Link> |
-          <Link to="#">Dealers</Link> |
-          <Link to="#">FAQ</Link> |
-          <Link to="#">About Us</Link> |
-          <Link to="#">Contact</Link> |
-          <Link to="#">Terms of Sale</Link>
+    <div className="bg-black text-white font-sans min-h-screen">
+      {/* Header */}
+      <header className="flex justify-between items-center px-4 py-3 border-b border-yellow-500">
+        <div className="text-2xl font-bold">flashfog</div>
+        <nav className="space-x-4 hidden md:block">
+          <Link to="#" className="hover:text-yellow-400">Fog Kits</Link>
+          <Link to="#" className="hover:text-yellow-400">Security Foggers</Link>
+          <Link to="#" className="hover:text-yellow-400">Buying Basics</Link>
         </nav>
-        <div className="newsletter">
-          <p>Sign up for the FlashFog Newsletter</p>
-          <input type="email" placeholder="Email Address" />
-          <input type="text" placeholder="First Name" />
-          <input type="text" placeholder="Last Name" />
-          <button>Subscribe</button>
+        <button className="bg-yellow-400 text-black px-3 py-1 rounded-md">Store</button>
+      </header>
+
+      {/* Hero Video */}
+      <section className="py-6 flex justify-center">
+        <div className="rounded-2xl overflow-hidden border border-yellow-400">
+          <img src="/video-placeholder.jpg" alt="FlashFog video" className="w-full max-w-2xl" />
         </div>
-        <p>©2025 FlashFog Security. 375 Brunel Road, Mississauga, Ontario L4Z 1Z5 Canada · Phone: 905‑502‑0249 · Toll Free: 1‑888‑282‑7740</p>
+      </section>
+
+      {/* Main Headline */}
+      <section className="text-center py-10">
+        <h1 className="text-4xl font-bold">Think like a burglar!</h1>
+        <p className="italic mt-2 text-yellow-300">(...This is How They See It)</p>
+      </section>
+
+      {/* 3 Columns Section */}
+      <section className="grid grid-cols-1 md:grid-cols-3 gap-6 px-4 text-center py-10">
+        <div className="bg-gray-900 p-6 rounded-lg">
+          <h2 className="text-xl font-bold text-red-400">Steal Quickly</h2>
+          <p className="mt-2 text-sm">Smash and grab burglars love 'verified' alarm policies that delay police response while they steal.</p>
+        </div>
+        <div className="bg-gray-900 p-6 rounded-lg">
+          <h2 className="text-xl font-bold text-green-400">Don't Get Caught</h2>
+          <p className="mt-2 text-sm">Your brazen bandits are probably past their 'first strike'. Not getting caught drives all their decisions.</p>
+        </div>
+        <div className="bg-gray-900 p-6 rounded-lg">
+          <h2 className="text-xl font-bold text-blue-400">Find Useful Victims</h2>
+          <p className="mt-2 text-sm">Juicy targets abound. Quiet areas invite every method of entry, including ram-raids.</p>
+        </div>
+      </section>
+
+      {/* Testimonial Section */}
+      <section className="bg-black border-t border-yellow-400 py-12 px-4">
+        <h2 className="text-center text-2xl font-bold text-yellow-300 mb-6">"56 seconds first time 1:09 minutes the second time"</h2>
+        <div className="grid md:grid-cols-2 gap-6 items-center">
+          <div>
+            <img src="/testimonial-video.jpg" alt="Testimonial" className="rounded-xl" />
+          </div>
+          <div className="text-sm text-gray-300">
+            Greg really tried, but never caught them stealing. Bandits pulled off ram raids, smashed windows...<br/>
+            Full interview available upon request.
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Buttons */}
+      <section className="text-center py-12">
+        <h2 className="text-2xl font-bold text-yellow-300 mb-4">Then the fog clears without a trace.</h2>
+        <button className="bg-yellow-400 text-black px-6 py-2 rounded-md">Learn More</button>
+      </section>
+
+      {/* Feature Grid */}
+      <section className="grid grid-cols-1 md:grid-cols-3 gap-6 px-4 pb-12">
+        <div className="bg-gray-800 p-6 rounded-lg">
+          <h3 className="text-xl font-bold text-yellow-200">You Teach 'Em</h3>
+          <p className="text-sm mt-2">Once thieves have a taste of your security, they avoid your site and move on.</p>
+        </div>
+        <div className="bg-gray-800 p-6 rounded-lg">
+          <h3 className="text-xl font-bold text-yellow-200">You Pull The Rug</h3>
+          <p className="text-sm mt-2">Thieves can’t steal what they can’t see. They panic. They flee.</p>
+        </div>
+        <div className="bg-gray-800 p-6 rounded-lg">
+          <h3 className="text-xl font-bold text-yellow-200">You Get Your Money</h3>
+          <p className="text-sm mt-2">FlashFog turns alarm systems into real-world protection with immediate action.</p>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-black border-t border-yellow-400 text-center text-sm text-gray-400 py-6">
+        <p>25 Years smashing smash &amp; grab burglary.</p>
+        <p className="mt-2">&copy; 2025 FlashFog Security. All rights reserved.</p>
       </footer>
-    </>
+    </div>
   );
 }
+
+/** @typedef {import('@shopify/remix-oxygen').LoaderFunctionArgs} LoaderFunctionArgs */
+/** @template T @typedef {import('react-router').MetaFunction<T>} MetaFunction */
+/** @typedef {import('storefrontapi.generated').FeaturedCollectionFragment} FeaturedCollectionFragment */
+/** @typedef {import('storefrontapi.generated').RecommendedProductsQuery} RecommendedProductsQuery */
+/** @typedef {import('@shopify/remix-oxygen').SerializeFrom<typeof loader>} LoaderReturnData */
